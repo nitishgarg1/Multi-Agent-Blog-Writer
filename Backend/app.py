@@ -59,6 +59,11 @@ app = FastAPI(
 # CORS: allow the React/Vite development server
 # ---------------------------------------------------------
 import os
+app.mount(
+    "/images",
+    StaticFiles(directory=IMAGES_DIR),
+    name="images",
+)
 
 ALLOWED_ORIGINS = [
     o.strip()
