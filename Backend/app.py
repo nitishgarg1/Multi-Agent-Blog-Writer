@@ -58,23 +58,22 @@ app = FastAPI(
 # ---------------------------------------------------------
 # CORS: allow the React/Vite development server
 # ---------------------------------------------------------
+import os
+
+ALLOWED_ORIGINS = [
+    o.strip()
+    for o in os.getenv("FRONTEND_URL", "http://localhost:5173").split(",")
+    if o.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=ALLOWED_ORIGINS + ["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-
-# ---------------------------------------------------------
-# Serve generated images to the React frontend
-# ---------------------------------------------------------
-app.mount(
-    "/images",
-    StaticFiles(directory=IMAGES_DIR),
-    name="images",
-)
 
 
 # ---------------------------------------------------------
