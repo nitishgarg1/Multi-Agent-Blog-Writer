@@ -1,0 +1,55 @@
+.masthead {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+
+.masthead h1 {
+  font-size: 2.1rem;
+  letter-spacing: -0.01em;
+}
+
+.masthead p {
+  margin-top: 0.35rem;
+  color: var(--muted);
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 22rem minmax(0, 1fr);
+  gap: 2rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  align-items: start;
+}
+
+.rail {
+  display: grid;
+  gap: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.stage {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.stage__body {
+  padding: 1.75rem 2rem 2.5rem;
+}
+
+@media (max-width: 56rem) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+  .rail {
+    position: static;
+  }
+  .stage__body {
+    padding: 1.25rem;
+  }
+}

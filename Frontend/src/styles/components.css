@@ -1,0 +1,422 @@
+/* Panels and form ------------------------------------------------ */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.panel__title {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-family: var(--font-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.field {
+  width: 100%;
+  resize: vertical;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  color: inherit;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.field:disabled {
+  opacity: 0.6;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn--quiet {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Progress -------------------------------------------------------- */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.6rem;
+}
+
+.step__mark {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.1rem;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  color: var(--accent-ink);
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+}
+
+.step--running .step__mark {
+  border-color: var(--accent);
+  background: var(--marker);
+}
+
+.step--done .step__mark {
+  background: var(--done);
+  border-color: var(--done);
+}
+
+.step--skipped .step__mark {
+  color: var(--muted);
+}
+
+.step--pending .step__label {
+  color: var(--muted);
+}
+
+/* the "highlighter" on whatever is being worked on right now */
+.step--running .step__label {
+  background: linear-gradient(transparent 55%, var(--marker) 55%);
+}
+
+.step__label {
+  font-weight: 500;
+}
+
+.step__detail {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.bar {
+  height: 4px;
+  margin-top: 0.5rem;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.substeps {
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.queries {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+
+.queries summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.queries ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+/* Tabs ------------------------------------------------------------ */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.tab {
+  padding: 0.85rem 0.9rem;
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.tab--active {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+.tab__count {
+  margin-left: 0.4rem;
+  padding: 0 0.4rem;
+  font-size: 0.75rem;
+  background: var(--paper);
+  border-radius: 999px;
+}
+
+/* Alerts, badges, empty states ----------------------------------- */
+.alert {
+  margin: 1.25rem 1.25rem 0;
+  padding: 0.75rem 1rem;
+  color: var(--error);
+  background: #fdecea;
+  border-left: 3px solid var(--error);
+  border-radius: var(--radius);
+}
+
+.alert--info {
+  color: var(--ink);
+  background: var(--paper);
+  border-left-color: var(--muted);
+}
+
+.empty {
+  max-width: 34rem;
+  color: var(--muted);
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  background: var(--marker);
+  border-radius: 999px;
+}
+
+/* Article --------------------------------------------------------- */
+.prose {
+  max-width: 44rem;
+  font-family: var(--font-text);
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.prose h1 {
+  margin-bottom: 1.25rem;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+}
+
+.prose h2 {
+  margin: 2.4rem 0 0.8rem;
+  font-size: 1.55rem;
+}
+
+.prose h3 {
+  margin: 1.8rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 1.1rem;
+}
+
+.prose li {
+  margin-bottom: 0.3rem;
+}
+
+.prose code {
+  padding: 0.1em 0.35em;
+  font-family: var(--font-code);
+  font-size: 0.85em;
+  background: var(--paper);
+  border-radius: 4px;
+}
+
+.prose pre {
+  margin: 0 0 1.4rem;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  color: #e8edf4;
+  background: #16202c;
+  border-radius: var(--radius);
+  line-height: 1.5;
+}
+
+.prose pre code {
+  padding: 0;
+  font-size: 0.85rem;
+  color: inherit;
+  background: none;
+}
+
+.prose blockquote {
+  margin: 0 0 1.1rem;
+  padding-left: 1rem;
+  color: var(--muted);
+  border-left: 3px solid var(--line);
+}
+
+.prose table {
+  display: block;
+  margin-bottom: 1.4rem;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+
+.prose th,
+.prose td {
+  padding: 0.45rem 0.75rem;
+  text-align: left;
+  border: 1px solid var(--line);
+}
+
+.prose th {
+  background: var(--paper);
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  margin: 1.5rem auto 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* caption written as *italic* right after the image */
+.prose img + em {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Outline --------------------------------------------------------- */
+.plan__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  margin: 0 0 1.25rem;
+}
+
+.plan__meta dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.plan__meta dd {
+  margin: 0;
+  max-width: 20rem;
+}
+
+.plan__constraints {
+  margin: 0 0 1.5rem;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.task {
+  padding-left: 1rem;
+  border-left: 3px solid var(--line);
+}
+
+.task--done {
+  border-left-color: var(--done);
+}
+
+.task h3 {
+  font-size: 1.15rem;
+}
+
+.task > p {
+  margin-top: 0.25rem;
+}
+
+.task ul {
+  margin: 0.5rem 0;
+  padding-left: 1.1rem;
+}
+
+.task__meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Sources --------------------------------------------------------- */
+.sources {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+  max-width: 44rem;
+}
+
+.sources a {
+  font-weight: 500;
+}
+
+.sources__host {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.sources p {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
